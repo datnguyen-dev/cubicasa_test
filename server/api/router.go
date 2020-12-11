@@ -31,8 +31,8 @@ func (h *Handler) initRouter() {
 		r.Delete("/hubs/{id}", h.process.deleteHub)
 		r.Delete("/teams/{id}", h.process.deleteTeam)
 
-		r.Get("/searchhubs/{name}", h.process.searchHub)
-		r.Get("/searchteams/{name}", h.process.searchTeam)
+		r.Get("/searchhubs", h.process.searchHub)
+		r.Get("/searchteams", h.process.searchTeam)
 
 		r.Put("/jointeam/{teamid}/{hubid}", h.process.joinTeam)
 		r.Put("/joinuser/{userid}/{teamid}/{role}", h.process.joinUser)

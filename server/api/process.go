@@ -13,8 +13,6 @@ type process struct {
 }
 
 func (p *process) checkDB(w http.ResponseWriter, r *http.Request) {
-	fmt.Print("----------------")
-	fmt.Print(p.store)
 	res := p.store.DBRepo().CheckDB()
 	p.render(w, http.StatusOK, struct {
 		DBExisted bool `json:"db_existed"`
@@ -48,6 +46,7 @@ func (p *process) createHub(w http.ResponseWriter, r *http.Request) {
 		p.render(w, http.StatusBadRequest, "invalid request body "+err.Error())
 		return
 	}
+	fmt.Print(request)
 	id, err := p.store.Hubs().AddHub(&request)
 	if err != nil {
 		p.render(w, http.StatusBadRequest, "add hub error "+err.Error())
@@ -192,7 +191,7 @@ func (p *process) deleteUser(w http.ResponseWriter, r *http.Request) {
 }
 
 func (p *process) searchHub(w http.ResponseWriter, r *http.Request) {
-	name := p.urlParam(r, "name")
+	name := r.URL.Query().Get("name")
 	if len(name) == 0 {
 		p.render(w, http.StatusBadRequest, "param error")
 		return
@@ -202,13 +201,14 @@ func (p *process) searchHub(w http.ResponseWriter, r *http.Request) {
 		p.render(w, http.StatusBadRequest, "search hub error "+err.Error())
 		return
 	}
+
 	p.render(w, http.StatusOK, struct {
 		Data interface{} `json:"Data"`
 	}{res})
 }
 
 func (p *process) searchTeam(w http.ResponseWriter, r *http.Request) {
-	name := p.urlParam(r, "name")
+	name := r.URL.Query().Get("name")
 	if len(name) == 0 {
 		p.render(w, http.StatusBadRequest, "param error")
 		return
@@ -255,7 +255,7 @@ func (p *process) joinUser(w http.ResponseWriter, r *http.Request) {
 		p.render(w, http.StatusBadRequest, "param teamid error")
 		return
 	}
-	role, err := strconv.Atoi(p.urlParam(r, "teamid"))
+	role, err := strconv.Atoi(p.urlParam(r, "role"))
 	if err != nil {
 		p.render(w, http.StatusBadRequest, "param role error")
 		return

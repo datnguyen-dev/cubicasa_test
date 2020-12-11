@@ -23,6 +23,8 @@ func (u *users) AddUser(user *store.Users) (string, error) {
 			return "", fmt.Errorf("Duplicate")
 		}
 	}
+	user.Role = 0
+	user.TeamID = ""
 	u.db.Create(user)
 	return user.UserID, nil
 }
@@ -55,9 +57,3 @@ func (u *users) DeleteUser(id string) (bool, error) {
 	u.db.Delete(us, "user_id = ?", id)
 	return true, nil
 }
-
-/*
-AddUser(*Users) (string, error)
-UpdateUser(*Users) (bool, error)
-DeleteUser(string) (bool, error)
-*/

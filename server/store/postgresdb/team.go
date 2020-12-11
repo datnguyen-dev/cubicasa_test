@@ -22,6 +22,7 @@ func (t *team) AddTeam(team *store.Team) (string, error) {
 			return "", fmt.Errorf("Duplicate")
 		}
 	}
+	team.HubID = ""
 	t.db.Create(team)
 	return team.TeamID, nil
 }
@@ -35,7 +36,6 @@ func (t *team) UpdateTeam(team *store.Team) (bool, error) {
 	if &te == nil {
 		return false, fmt.Errorf("NotFound")
 	}
-
 	t.db.Model(te).Updates(team)
 	return true, nil
 }

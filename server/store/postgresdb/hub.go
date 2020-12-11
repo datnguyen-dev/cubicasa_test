@@ -17,12 +17,12 @@ func (h *hub) AddHub(hub *store.Hub) (string, error) {
 		hub.HubID = common.GenUID()
 	} else {
 		var hu *store.Hub
-		h.db.First(&hu, "hubid = ?", hub.HubID)
+		h.db.First(&hu, "hub_id = ?", hub.HubID)
 		if hu != nil {
 			return "", fmt.Errorf("Duplicate")
 		}
 	}
-	h.db.Create(hub)
+	h.db.Create(&hub)
 	return hub.HubID, nil
 }
 
