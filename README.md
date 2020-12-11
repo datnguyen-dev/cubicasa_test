@@ -19,6 +19,7 @@ multiple affiliations is not allowed in this project).
 • Provide a SQL script which creates tables needed for the web
 service.
 • Use Postgres for the database.
+• Good to use docker/docker-compose for local development setup(not mandatory)
 
 # Preparing
   - install postgresdb
@@ -45,3 +46,6 @@ with script install insite folder ./setup/script.sql
   - http://localhost:3100/checkdb [GET]
 check db exsited or not
 • Use Postgres for the database. (yes)
+• Good to use docker/docker-compose for local development setup(not mandatory):
+  - build: cd server -> make linux -> make docker -> docker-compose up -d
+  - continue test with api under

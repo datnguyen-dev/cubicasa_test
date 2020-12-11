@@ -1,0 +1,30 @@
+version: "3"
+services:
+  cubicasa:
+    image: datnguyen.cubicasa.test/cubicasa_test:latest
+    restart: always
+    volumes:
+      - .:/cubicasa_test
+    ports:
+      - 3100:3100
+    environment:
+      HOST: postgresql
+      PORT: 5432
+      USER_NAME: postgres
+      PASS_WORD: 1234567890
+      DB_NAME: cubicasa_db
+      SSL: disable
+      SETUP_FILE: ./setup/script.sql
+    networks:
+      - cubicasa_test-network
+  postgresql:
+    image: postgres:latest
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: 1234567890
+      POSTGRES_USER: postgres
+      POSTGRES_DB: cubicasa_db
+    networks:
+      - cubicasa_test-network
+networks:
+  cubicasa_test-network:

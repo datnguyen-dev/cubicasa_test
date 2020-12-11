@@ -21,7 +21,7 @@ func (p *process) checkDB(w http.ResponseWriter, r *http.Request) {
 
 func (p *process) install(w http.ResponseWriter, r *http.Request) {
 	res := p.store.DBRepo().CheckDB()
-	if !res {
+	if !res || res {
 		_, err := p.store.DBRepo().Install()
 		if err != nil {
 			p.render(w, http.StatusBadRequest, struct {
