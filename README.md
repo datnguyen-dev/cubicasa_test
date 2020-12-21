@@ -29,6 +29,10 @@ service.
 cd server
 go run main.go
 --------------
+# JSON Structure
+  - HUB: {"hub_id": "string", "name": "string", "geo_location": "string"}
+  - TEAM: {"team_id": "string", "name": "string", "type": "string", "hub_id": "string"}
+  - USER: {"user_id": "string", "role": "string", "email": "string", "team_id": "string"}
 # API list
 • Implement a Create for each hub, team, and users.
   - hub:  http://localhost:3100/hubs [POST]
