@@ -1,0 +1,249 @@
+{
+	"info": {
+		"_postman_id": "fc30ee64-ee30-4bc7-bc8c-04e761d9d163",
+		"name": "Cubicasa",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "AddHub",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"hub_id\":\"\",\n    \"name\": \"Hub 01\",\n    \"geo_location\": \"1.1121223;1.32123342\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:3100/hubs"
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateHub",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"hub_id\":\"28ecc8a7-6690-47d3-baba-79b4440a0378\",\n    \"name\": \"Hub 01 update\",\n    \"geo_location\": \"1.1121223;1.32123342\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:3100/hubs"
+			},
+			"response": []
+		},
+		{
+			"name": "AddTeam",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"team_id\": \"\",\n    \"name\": \"team 01\",\n    \"type\": \"DEV\",\n    \"hub_id\": \"\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:3100/teams"
+			},
+			"response": []
+		},
+		{
+			"name": "AddUser",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"user_id\": \"\",\n    \"role\": 1,\n    \"email\": \"it.tandat@gmail.com\",\n    \"team_id\": \"\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:3100/users/1d008700-436b-4631-b57f-3d4b0662b13c"
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteUser",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"user_id\": \"\",\n    \"role\": 1,\n    \"email\": \"it.tandat@gmail.com\",\n    \"team_id\": \"\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:3100/users/1d008700-436b-4631-b57f-3d4b0662b13c"
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteTeam",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"user_id\": \"\",\n    \"role\": 1,\n    \"email\": \"it.tandat@gmail.com\",\n    \"team_id\": \"\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:3100/teams/c87cddcb-040c-4c5f-8317-1162102f69aa"
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteHub",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"user_id\": \"\",\n    \"role\": 1,\n    \"email\": \"it.tandat@gmail.com\",\n    \"team_id\": \"\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:3100/hubs/f9bd420f-9895-4e76-8fae-c4e7c34e2591"
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateUser",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"user_id\": \"1fdf976c-a45f-482b-88c3-f3fa6b87c212\",\n    \"role\": 1,\n    \"email\": \"it.tandat@gmail.com\",\n    \"team_id\": \"\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:3100/users"
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateTeam",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"team_id\": \"c4ee36f7-da3c-4f3f-b6a6-f2a05e057c6a\",\n    \"name\": \"team 01 udpate\",\n    \"type\": \"TES\",\n    \"hub_id\": \"\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:3100/teams"
+			},
+			"response": []
+		},
+		{
+			"name": "JoinTeam",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"team_id\": \"c4ee36f7-da3c-4f3f-b6a6-f2a05e057c6a\",\n    \"name\": \"team 01 udpate\",\n    \"type\": \"DEV\",\n    \"hub_id\": \"\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:3100/jointeam/c87cddcb-040c-4c5f-8317-1162102f69aa/f9bd420f-9895-4e76-8fae-c4e7c34e2591"
+			},
+			"response": []
+		},
+		{
+			"name": "JoinUser",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": "http://localhost:3100/joinuser/1d008700-436b-4631-b57f-3d4b0662b13c/c87cddcb-040c-4c5f-8317-1162102f69aa/1"
+			},
+			"response": []
+		},
+		{
+			"name": "searchhub",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3100/searchhubs?name=\"01\"",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3100",
+					"path": [
+						"searchhubs"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "\"01\""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "searchteam",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3100/searchteams?name=\"01\"",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3100",
+					"path": [
+						"searchteams"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "\"01\""
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

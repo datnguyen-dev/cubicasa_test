@@ -1,0 +1,39 @@
+##FEEDBACK
+The submission still missing some input validations when creating user/team/hub.
+Besides that the document is not written well enough.
+Can you send the feed back to the candidate. And, please ask  if he/she can update the README.MD file clearer?
+for eg:
+- how to create a user/team/hub?
+- what's the request json structure?
+- what's the response json structure?
+ ---> please follow my postman file import and test with POSTMAN:
+  1. Add Hub, Add Team, Add User
+  2. Update Hub, Update Team, Update User
+  3. Join Team, Join User
+  4. Search Hub by Name, Search Team by Name
+  5. Delete User, Delete Team, Delete User
+
+Ups
+1. Nice to have all the test files
+2. Interesting design
+3. Mindful about CORS
+4. Made difference between private and public functions
+---> Thanks you so much
+
+Downs
+1. Defer must come before the error check
+---> with my code defer come at 2 points:
+  a. open config file i want to check config can open and read after that i need to defer close, if i defer before, if file can't open defer maybe error
+  b. open db connection: I defer close DB when services stoped, if I defer close connection before open connection maybe error come
+2. DB credentials shown at multiple places of the repo
+----> DB credentials come from 3 points:
+  a. Default config file, this file generate the config file with connection inside this config file cubicasa_test.conf
+  b. from Docker-compose.yml this file config for docker enviroment. Because my config will be override from docker config
+  c. from the *_test.go file this config hard code for test local enviroment
+3. Config parsing structure is a bit non-intuitive
+----> Can you explain more detail, actualy from my config file i'm using DB credentials and path of script file when you want to create db from script. But with my code when
+you start project my db create already (no need to run script create db)
+4. The person understands interface but, I am not sure about the benefits with how its used in the test
+-----> ???
+5. Few or no comments written in the code
+-----> I'm update some comment follow stardard coding
