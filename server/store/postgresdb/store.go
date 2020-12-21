@@ -36,7 +36,7 @@ func (s *Store) DBRepo() store.DBRepoStore {
 // Check valid interface implementation
 var _ store.Store = (*Store)(nil)
 
-//InitDB -
+//InitDB - Init connection to database
 func InitDB(db *gorm.DB, file string) *Store {
 	db.AutoMigrate(&store.Users{})
 	db.AutoMigrate(&store.Hub{})

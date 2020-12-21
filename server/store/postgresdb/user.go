@@ -12,7 +12,7 @@ type users struct {
 	db *gorm.DB
 }
 
-//AddUser -
+//AddUser - Add user to database
 func (u *users) AddUser(user *store.Users) (string, error) {
 	if user.UserID == "" {
 		user.UserID = common.GenUID()
@@ -29,7 +29,7 @@ func (u *users) AddUser(user *store.Users) (string, error) {
 	return user.UserID, nil
 }
 
-//UpdateUser -
+//UpdateUser - Update user existed
 func (u *users) UpdateUser(user *store.Users) (bool, error) {
 	if user.UserID == "" {
 		return false, fmt.Errorf("NotFound")
@@ -44,7 +44,7 @@ func (u *users) UpdateUser(user *store.Users) (bool, error) {
 	return true, nil
 }
 
-//DeleteUser -
+//DeleteUser - Delete user existed
 func (u *users) DeleteUser(id string) (bool, error) {
 	if id == "" {
 		return false, fmt.Errorf("NotFound")

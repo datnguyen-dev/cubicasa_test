@@ -14,6 +14,7 @@ type dbrepo struct {
 	file string
 }
 
+//Install - Initial DB with script file from the PATH return true/false
 func (r *dbrepo) Install() (bool, error) {
 	cmd, err := ioutil.ReadFile(r.file)
 	if err != nil {
@@ -26,6 +27,7 @@ func (r *dbrepo) Install() (bool, error) {
 	return true, nil
 }
 
+//CheckDB - Check DB exsited or not return true/false
 func (r *dbrepo) CheckDB() bool {
 	cmd := `SELECT table_schema FROM information_schema.tables 
 		WHERE  table_name = ?`
@@ -35,6 +37,7 @@ func (r *dbrepo) CheckDB() bool {
 	return schema != ""
 }
 
+//SearchHubByName - Search hub via Name of hub and return Hub and Team reference
 func (r *dbrepo) SearchHubByName(hubName string) (interface{}, error) {
 	type rest struct {
 		Hub   store.Hub    `json:"hub"`
@@ -59,6 +62,7 @@ func (r *dbrepo) SearchHubByName(hubName string) (interface{}, error) {
 	return res, nil
 }
 
+// SearchTeamByName - Search team via Name of team return list Hubs and Teams references
 func (r *dbrepo) SearchTeamByName(teamName string) (interface{}, error) {
 	type rest struct {
 		Hub   store.Hub    `json:"hub"`
@@ -88,6 +92,7 @@ func (r *dbrepo) SearchTeamByName(teamName string) (interface{}, error) {
 	return res, nil
 }
 
+//JoinTeanIntoHub - Join Team into Hub with HubID
 func (r *dbrepo) JoinTeamIntoHub(teamID string, hubID string) (bool, error) {
 	var team store.Team
 	r.db.Table("teams").Where("team_id = ?", teamID).Scan(&team)
@@ -102,6 +107,7 @@ func (r *dbrepo) JoinTeamIntoHub(teamID string, hubID string) (bool, error) {
 	return false, fmt.Errorf("NotFound")
 }
 
+//JoinUserIntoTeam - Join User into Team with teamid and roleID
 func (r *dbrepo) JoinUserIntoTeam(userID string, teamID string, roleID int) (bool, error) {
 	var user store.Users
 	r.db.Table("users").Where("user_id = ?", userID).Scan(&user)

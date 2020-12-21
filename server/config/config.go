@@ -26,6 +26,7 @@ type Config struct {
 	} `hcl:"postgres"`
 }
 
+//Config for Docker Enviroment
 type envConfig struct {
 	Host      string `env:"HOST"`
 	Port      int    `env:"PORT"`

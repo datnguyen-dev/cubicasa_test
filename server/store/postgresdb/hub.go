@@ -12,6 +12,7 @@ type hub struct {
 	db *gorm.DB
 }
 
+//AddHub - Add hub into databases
 func (h *hub) AddHub(hub *store.Hub) (string, error) {
 	if hub.HubID == "" {
 		hub.HubID = common.GenUID()
@@ -26,6 +27,7 @@ func (h *hub) AddHub(hub *store.Hub) (string, error) {
 	return hub.HubID, nil
 }
 
+//UpdateHub - Update existed Hub
 func (h *hub) UpdateHub(hub *store.Hub) (bool, error) {
 	if hub.HubID == "" {
 		return false, fmt.Errorf("NotFound")
@@ -40,6 +42,7 @@ func (h *hub) UpdateHub(hub *store.Hub) (bool, error) {
 	return true, nil
 }
 
+//DeleteHub - Delete existed Hub
 func (h *hub) DeleteHub(id string) (bool, error) {
 	if id == "" {
 		return false, fmt.Errorf("NotFound")

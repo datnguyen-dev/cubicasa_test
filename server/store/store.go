@@ -10,28 +10,28 @@ type Store interface {
 	DBRepo() DBRepoStore
 }
 
-//UserStore -
+//UserStore - Store all Functionality of User
 type UserStore interface {
 	AddUser(*Users) (string, error)
 	UpdateUser(*Users) (bool, error)
 	DeleteUser(string) (bool, error)
 }
 
-//TeamStore -
+//TeamStore - Store all Functionaluty of Team
 type TeamStore interface {
 	AddTeam(*Team) (string, error)
 	UpdateTeam(*Team) (bool, error)
 	DeleteTeam(string) (bool, error)
 }
 
-//HubStore -
+//HubStore - Store all functionality of Hub
 type HubStore interface {
 	AddHub(*Hub) (string, error)
 	UpdateHub(*Hub) (bool, error)
 	DeleteHub(string) (bool, error)
 }
 
-//DBRepoStore -
+//DBRepoStore - Store all functionality of connection to Team/Hub/User
 type DBRepoStore interface {
 	Install() (bool, error)
 	CheckDB() bool

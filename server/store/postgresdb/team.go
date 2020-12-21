@@ -12,6 +12,7 @@ type team struct {
 	db *gorm.DB
 }
 
+//AddTeam - Add team to database and return team_id
 func (t *team) AddTeam(team *store.Team) (string, error) {
 	if team.TeamID == "" {
 		team.TeamID = common.GenUID()
@@ -27,6 +28,7 @@ func (t *team) AddTeam(team *store.Team) (string, error) {
 	return team.TeamID, nil
 }
 
+//UpdateTeam - Update existed team
 func (t *team) UpdateTeam(team *store.Team) (bool, error) {
 	if team.TeamID == "" {
 		return false, fmt.Errorf("NotFound")
@@ -40,6 +42,7 @@ func (t *team) UpdateTeam(team *store.Team) (bool, error) {
 	return true, nil
 }
 
+//DeleteTeam - delete existed team
 func (t *team) DeleteTeam(id string) (bool, error) {
 	if id == "" {
 		return false, fmt.Errorf("NotFound")
