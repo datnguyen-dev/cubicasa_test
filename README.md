@@ -58,3 +58,9 @@ check db exsited or not
 • Good to use docker/docker-compose for local development setup(not mandatory):
   - build: cd server -> make linux -> make docker -> docker-compose up -d
   - continue test with api under
+  
+# Feedback
+  - ./server/FEEDBACK.me
+# Postman
+  - ./server/postman/*.json
+
